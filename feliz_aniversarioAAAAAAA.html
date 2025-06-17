@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para minha coelhinha Sayo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #ffd6dc;
+      overflow-x: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      transform: rotate(45deg);
+      animation: float 10s infinite ease-in;
+      opacity: 0.8;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .btn {
+      background-color: #ff5e78;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      z-index: 2;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .carta {
+      max-width: 600px;
+      background-color: #ffe0ea;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+      white-space: pre-wrap;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: rgba(255, 94, 120, 0.2);
+      color: #ff5e78;
+      border: 2px solid #ff5e78;
+      border-radius: 8px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 3;
+      transition: background-color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: rgba(255, 94, 120, 0.4);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="button-container fade-in" id="inicio">
+    <button class="btn" onclick="mostrarCarta()">te amo meu amor feliz aniversário</button>
+  </div>
+
+  <div id="carta" class="carta hidden fade-in">
+    <p>Oi, minha coelhinha 🐰✨</p>
+    <p>Estar com você deixa tudo mais leve.
+Quando a gente entra em qualquer mundo juntos, parece que tudo se encaixa.
+Você tem esse jeitinho calmo, doce… que transforma até os momentos mais simples em algo especial.</p>
+    <p>Em Sky, é com você que eu mais gosto de voar.
+Quando a gente caminha entre as nuvens, acende as velas, troca presentes, ou simplesmente senta lado a lado, o mundo parece mais bonito.
+Você é como aquela luz suave que guia, que aquece. E voar ao seu lado faz o céu parecer infinito.</p>
+    <p>No Minecraft, cada bloquinho colocado com você tem mais sentido.
+A gente constrói devagar, sem pressa, criando não só casas — mas memórias.
+Gosto de quando a gente se perde pelas florestas, quando planta flores em volta da base ou explora cavernas como se estivesse desbravando o mundo pela primeira vez.
+É nesses momentos simples que eu sinto o quanto você é importante pra mim.</p>
+    <p>No Roblox, você sempre encontra jeitos de fazer o dia mais divertido.
+São tantos mundos, tantas fases bobas, tantas risadas guardadas no coração.
+E mesmo quando o jogo é bobo, você faz tudo valer a pena.
+Só de estar ali com você, tudo fica mais colorido.</p>
+    <p>E no League, você é minha dupla preferida.
+Não importa o modo, o mapa ou o campeão — jogar com você faz qualquer partida ser especial.
+Tem algo em saber que você tá do meu lado ali… lutando, rindo, vivendo aquele momento comigo.</p>
+    <p>Sayo, minha linda…
+Você é mais do que minha parceira de jogo.
+É quem eu espero pra compartilhar meus dias, quem me faz querer estar presente, quem transforma o “vamos jogar um pouco?” em “vamos viver algo juntos hoje”.</p>
+    <p>E eu, seu lobinho, vou estar aqui pra seguir ao seu lado em cada mundo.
+Te proteger no meio do caos, te acompanhar nas aventuras, te admirar nos momentos calmos.
+Com você, até os dias mais simples se tornam especiais.</p>
+    <p>Com todo o meu carinho,<br>
+    Akarin 🐺💛</p>
+    <button class="back-btn" onclick="voltarInicio()">⬅ Voltar</button>
+  </div>
+
+  <script>
+    function mostrarCarta() {
+      document.getElementById('inicio').classList.add('hidden');
+      document.getElementById('carta').classList.remove('hidden');
+    }
+
+    function voltarInicio() {
+      document.getElementById('carta').classList.add('hidden');
+      document.getElementById('inicio').classList.remove('hidden');
+    }
+
+    function criarCoracoes() {
+      const heartsContainer = document.getElementById('hearts');
+      for (let i = 0; i < 40; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        heartsContainer.appendChild(heart);
+      }
+    }
+
+    criarCoracoes();
+  </script>
+</body>
+</html>
